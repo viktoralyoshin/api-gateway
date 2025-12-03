@@ -1,6 +1,8 @@
 package app
 
 import (
+	"api-gateway/internal/config"
+	"api-gateway/internal/grpc"
 	"api-gateway/internal/router"
 
 	"github.com/gofiber/contrib/fiberzerolog"
@@ -8,7 +10,7 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
-func Start() {
+func Start(cfg *config.Config) {
 	app := fiber.New(fiber.Config{
 		DisableStartupMessage: true,
 	})
@@ -17,11 +19,13 @@ func Start() {
 		Logger: &log.Logger,
 	}))
 
+	grpc.Init(cfg)
+
 	router.SetupRouter(app)
 
-	log.Info().Msg("Api Gateway starting :8000")
+	log.Info().Msg("Api Gateway starting :8080")
 
-	if err := app.Listen(":8000"); err != nil {
+	if err := app.Listen(":8080"); err != nil {
 		log.Fatal().Err(err).Msg("Api Gateway starting failed")
 	}
 }

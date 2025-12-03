@@ -2,12 +2,19 @@ package main
 
 import (
 	"api-gateway/internal/app"
+	"api-gateway/internal/config"
 
+	"github.com/rs/zerolog/log"
 	"github.com/viktoralyoshin/utils/pkg/logger"
 )
 
 func main() {
 	logger.Setup()
 
-	app.Start()
+	cfg, err := config.Load()
+	if err != nil {
+		log.Fatal().Msgf("failed to load config: %v", err)
+	}
+
+	app.Start(cfg)
 }
