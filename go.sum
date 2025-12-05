@@ -42,6 +42,8 @@ github.com/viktoralyoshin/playhub-proto v0.0.0-20251203150309-80838a8b69f1 h1:Ie
 github.com/viktoralyoshin/playhub-proto v0.0.0-20251203150309-80838a8b69f1/go.mod h1:sRzrguDdNqM+V+ZJYt9iqkW4D2gp1pXFu3KZEyWc2Mg=
 github.com/viktoralyoshin/playhub-proto v1.0.0 h1:OV4vfqVe5qUxECneUARkii0b2oSD6sf2zgYdYnHDs0A=
 github.com/viktoralyoshin/playhub-proto v1.0.0/go.mod h1:sRzrguDdNqM+V+ZJYt9iqkW4D2gp1pXFu3KZEyWc2Mg=
+github.com/viktoralyoshin/playhub-proto v1.0.1 h1:sm6KQYe1Tbo9Z2jwnbe3Tzti1AYsN+1aqXSPAO9PFag=
+github.com/viktoralyoshin/playhub-proto v1.0.1/go.mod h1:sRzrguDdNqM+V+ZJYt9iqkW4D2gp1pXFu3KZEyWc2Mg=
 github.com/viktoralyoshin/utils v0.0.0-20251202071345-6e7fa0c33ca6 h1:vX6pSUJG2hLm63HiGUwzsqG6o/w21HywdCvUocGVXlU=
 github.com/viktoralyoshin/utils v0.0.0-20251202071345-6e7fa0c33ca6/go.mod h1:BgfCTEbijX5Z9fuFd42ZnzOcGTc9T/F5o+HtSmxPw54=
 go.opentelemetry.io/auto/sdk v1.2.1 h1:jXsnJ4Lmnqd11kwkBV2LgLoFMZKizbCi5fNZ/ipaZ64=
