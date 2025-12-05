@@ -21,7 +21,7 @@ func Start(cfg *config.Config) {
 
 	grpc.Init(cfg)
 
-	router.SetupRouter(app)
+	router.SetupRouter(app, cfg)
 
 	log.Info().Msg("Api Gateway starting :8080")
 
