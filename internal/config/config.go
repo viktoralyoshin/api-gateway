@@ -6,9 +6,10 @@ import (
 )
 
 type Config struct {
-	AuthServiceAddr string
-	RefreshToketTtl time.Duration
-	Domain          string
+	AuthServiceAddr  string
+	GamesServiceAddr string
+	RefreshToketTtl  time.Duration
+	Domain           string
 }
 
 func Load() (*Config, error) {
@@ -21,9 +22,10 @@ func Load() (*Config, error) {
 	}
 
 	cfg := &Config{
-		AuthServiceAddr: os.Getenv("AUTH_SERVICE_ADDR"),
-		RefreshToketTtl: refreshDuration,
-		Domain:          os.Getenv("DOMAIN"),
+		AuthServiceAddr:  os.Getenv("AUTH_SERVICE_ADDR"),
+		GamesServiceAddr: os.Getenv("GAMES_SERVICE_ADDR"),
+		RefreshToketTtl:  refreshDuration,
+		Domain:           os.Getenv("DOMAIN"),
 	}
 
 	return cfg, nil

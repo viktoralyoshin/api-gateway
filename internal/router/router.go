@@ -11,4 +11,5 @@ func SetupRouter(app *fiber.App, cfg *config.Config) {
 	v1 := api.Group("/v1")
 
 	SetupUserRoutes(v1, cfg)
+	SetupGamesRoutes(v1)
 }
