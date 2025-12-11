@@ -6,8 +6,8 @@ require (
 	github.com/gofiber/contrib/fiberzerolog v1.0.3
 	github.com/gofiber/fiber/v2 v2.52.10
 	github.com/rs/zerolog v1.34.0
-	github.com/viktoralyoshin/playhub-proto v1.0.6
-	github.com/viktoralyoshin/utils v0.0.0-20251202071345-6e7fa0c33ca6
+	github.com/viktoralyoshin/playhub-proto v1.1.0
+	github.com/viktoralyoshin/utils v1.2.3
 	google.golang.org/grpc v1.77.0
 )
 

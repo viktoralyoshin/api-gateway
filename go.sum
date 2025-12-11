@@ -42,8 +42,12 @@ github.com/viktoralyoshin/playhub-proto v1.0.2 h1:BTuZ3Gy/Sy7dhXUwdpPpJMKUf5hkq8
 github.com/viktoralyoshin/playhub-proto v1.0.2/go.mod h1:sRzrguDdNqM+V+ZJYt9iqkW4D2gp1pXFu3KZEyWc2Mg=
 github.com/viktoralyoshin/playhub-proto v1.0.6 h1:bAWt6w4S+RcUMNxWfqldR3R463vvo0ds4Jhig28wMc8=
 github.com/viktoralyoshin/playhub-proto v1.0.6/go.mod h1:sRzrguDdNqM+V+ZJYt9iqkW4D2gp1pXFu3KZEyWc2Mg=
+github.com/viktoralyoshin/playhub-proto v1.1.0 h1:pe2I+xwhOZloKHbv2Z/BibhkeCGuyQOvPMO0t+zt6Ls=
+github.com/viktoralyoshin/playhub-proto v1.1.0/go.mod h1:sRzrguDdNqM+V+ZJYt9iqkW4D2gp1pXFu3KZEyWc2Mg=
 github.com/viktoralyoshin/utils v0.0.0-20251202071345-6e7fa0c33ca6 h1:vX6pSUJG2hLm63HiGUwzsqG6o/w21HywdCvUocGVXlU=
 github.com/viktoralyoshin/utils v0.0.0-20251202071345-6e7fa0c33ca6/go.mod h1:BgfCTEbijX5Z9fuFd42ZnzOcGTc9T/F5o+HtSmxPw54=
+github.com/viktoralyoshin/utils v1.2.3 h1:s8T9XrAacNS29Ut+x7ReQIXxSiCskKzMiooS4dLAaEQ=
+github.com/viktoralyoshin/utils v1.2.3/go.mod h1:YA1z2yz2OHp0KvdwK4lFu+2YL4nPE/HRwRpPQL+H+Xo=
 go.opentelemetry.io/auto/sdk v1.2.1 h1:jXsnJ4Lmnqd11kwkBV2LgLoFMZKizbCi5fNZ/ipaZ64=
 go.opentelemetry.io/auto/sdk v1.2.1/go.mod h1:KRTj+aOaElaLi+wW1kO/DZRXwkF4C5xPbEe3ZiIhN7Y=
 go.opentelemetry.io/otel v1.38.0 h1:RkfdswUDRimDg0m2Az18RKOsnI8UDzppJAtj01/Ymk8=
