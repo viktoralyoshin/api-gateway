@@ -15,6 +15,7 @@ func Start(cfg *config.Config) {
 		DisableStartupMessage: true,
 	})
 
+	// Подключаем логгер для Fiber (он будет логировать каждый запрос)
 	app.Use(fiberzerolog.New(fiberzerolog.Config{
 		Logger: &log.Logger,
 	}))
@@ -23,9 +24,11 @@ func Start(cfg *config.Config) {
 
 	router.SetupRouter(app, cfg)
 
-	log.Info().Msg("Api Gateway starting :8080")
+	log.Info().
+		Str("port", "8080").
+		Msg("API Gateway starting")
 
 	if err := app.Listen(":8080"); err != nil {
-		log.Fatal().Err(err).Msg("Api Gateway starting failed")
+		log.Fatal().Err(err).Msg("API Gateway server failed")
 	}
 }

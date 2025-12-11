@@ -21,7 +21,6 @@ func NewAuthHandler(cfg *config.Config) *AuthHandler {
 }
 
 func (h *AuthHandler) SignIn(c *fiber.Ctx) error {
-
 	ctx := c.UserContext()
 
 	var body struct {
@@ -30,27 +29,31 @@ func (h *AuthHandler) SignIn(c *fiber.Ctx) error {
 	}
 
 	if err := c.BodyParser(&body); err != nil {
-		log.Error().Msgf("failed to parse login body: %v", err)
+		log.Error().Err(err).Msg("failed to parse login body")
 
 		return c.Status(400).JSON(fiber.Map{
 			"error": "invalid payload",
 		})
 	}
 
-	log.Info().Msgf("login user: %s", body.Login)
+	log.Info().Str("login", body.Login).Msg("login attempt")
 
 	resp, err := grpc.AuthClient.Login(ctx, &authpb.LoginRequest{Login: body.Login, Password: body.Password})
 	if err != nil {
-		log.Error().Msgf("login for user %s failed: %v", body.Login, err)
+		log.Error().
+			Err(err).
+			Str("login", body.Login).
+			Msg("login failed via gRPC")
 
-		return c.Status(500).JSON(fiber.Map{
-			"error": err.Error(),
-		})
+		return utils.ReturnErr(c, err)
 	}
 
 	c.Cookie(utils.SetRefreshToken(resp.RefreshToken, h.cfg.RefreshToketTtl, h.cfg.Domain))
 
-	log.Info().Msgf("user %s has been logined: id=%s", body.Login, resp.UserId)
+	log.Info().
+		Str("login", body.Login).
+		Str("user_id", resp.UserId).
+		Msg("user successfully logged in")
 
 	return c.Status(200).JSON(fiber.Map{
 		"id":           resp.UserId,
@@ -70,27 +73,35 @@ func (h *AuthHandler) SignUp(c *fiber.Ctx) error {
 	}
 
 	if err := c.BodyParser(&body); err != nil {
-		log.Error().Msgf("failed to parse registration body: %v", err)
+		log.Error().Err(err).Msg("failed to parse registration body")
 
 		return c.Status(400).JSON(fiber.Map{
 			"error": "invalid payload",
 		})
 	}
 
-	log.Info().Msgf("registration user: email=%s, username=%s", body.Email, body.Username)
+	log.Info().
+		Str("email", body.Email).
+		Str("username", body.Username).
+		Msg("registration attempt")
 
 	resp, err := grpc.AuthClient.Register(ctx, &authpb.RegisterRequest{Username: body.Username, Email: body.Email, Password: body.Password})
 	if err != nil {
-		log.Error().Msgf("registration for user %s, %s failed: %v", body.Email, body.Username, err)
+		log.Error().
+			Err(err).
+			Str("email", body.Email).
+			Str("username", body.Username).
+			Msg("registration failed via gRPC")
 
-		return c.Status(500).JSON(fiber.Map{
-			"error": err.Error(),
-		})
+		return utils.ReturnErr(c, err)
 	}
 
 	c.Cookie(utils.SetRefreshToken(resp.RefreshToken, h.cfg.RefreshToketTtl, h.cfg.Domain))
 
-	log.Info().Msgf("user %s has been registered: id=%s", body.Username, resp.UserId)
+	log.Info().
+		Str("username", body.Username).
+		Str("user_id", resp.UserId).
+		Msg("user successfully registered")
 
 	return c.Status(201).JSON(fiber.Map{
 		"id":           resp.UserId,

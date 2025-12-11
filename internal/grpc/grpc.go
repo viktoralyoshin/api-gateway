@@ -24,7 +24,10 @@ func Init(cfg *config.Config) {
 func connect(addr string) *grpc.ClientConn {
 	conn, err := grpc.NewClient(addr, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
-		log.Fatal().Msgf("failed to initialize grpc connection to %s: %v", addr, err)
+		log.Fatal().
+			Err(err).
+			Str("target_addr", addr).
+			Msg("failed to initialize grpc connection")
 	}
 
 	return conn

@@ -10,6 +10,7 @@ type Config struct {
 	GamesServiceAddr string
 	RefreshToketTtl  time.Duration
 	Domain           string
+	Env              string
 }
 
 func Load() (*Config, error) {
@@ -26,6 +27,7 @@ func Load() (*Config, error) {
 		GamesServiceAddr: os.Getenv("GAMES_SERVICE_ADDR"),
 		RefreshToketTtl:  refreshDuration,
 		Domain:           os.Getenv("DOMAIN"),
+		Env:              os.Getenv("ENV"),
 	}
 
 	return cfg, nil
